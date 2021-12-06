@@ -1,8 +1,11 @@
-﻿@using MVCLocalization.Web.Controllers
+﻿@using MVCLocalization.Web.Configuration
+@using MVCLocalization.Web.Controllers
 @using Microsoft.AspNetCore.Mvc.Localization;
 @using Microsoft.Extensions.Localization
-@inject IStringLocalizer<HomeController> lu
+@using Microsoft.Extensions.Options
 
+@inject IStringLocalizer<HomeController> lu
+@inject IOptions<Keys> keys
 
 @{
     ViewData["Title"] = ViewData["Title"];
@@ -11,5 +14,9 @@
 <h2>@ViewData["Title"]</h2>
 <div class="text-center">
     <h4 class="display-4">@lu["HomePageTitle"]</h4>
-    
+    <br />
+    <div>
+        <b>Test  Reading Keys from app settings:</b><br />
+        User Name : @keys.Value.UserName
+    </div>
 </div>
