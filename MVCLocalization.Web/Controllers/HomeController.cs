@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Localization;
+using Microsoft.Extensions.Options;
+using MVCLocalization.Web.Configuration;
 using MVCLocalization.Web.Models;
 using System.Diagnostics;
 using System.Globalization;
@@ -12,19 +14,21 @@ namespace MVCLocalization.Web.Controllers
         private readonly IStringLocalizer<HomeController> _localizer;
 
         private readonly ILogger<HomeController> _logger;
-
+        private readonly IOptions<Keys> _mykeys;
         public HomeController(ILogger<HomeController> logger,
-            IStringLocalizer<HomeController> localizer
+            IStringLocalizer<HomeController> localizer,
+            IOptions<Keys> mykeys
             )
         {
             _logger = logger;
             _localizer = localizer; 
+            _mykeys = mykeys;
         }
 
         public IActionResult Index()
         {
             ViewData["Title"] = _localizer["Title"].Value;
-
+            Console.WriteLine(_mykeys.Value.Password);
             return View();
         }
  

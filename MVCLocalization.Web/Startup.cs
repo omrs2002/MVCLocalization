@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.Extensions.Options;
+using MVCLocalization.Web.Configuration;
 using System.Globalization;
 
 namespace MVCLocalization.Web
@@ -51,6 +52,10 @@ namespace MVCLocalization.Web
                  //}));
                 options.FallBackToParentUICultures = true;
             });
+
+
+            services.Configure<Keys>(Configuration.GetSection("Keys"));
+
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -62,7 +67,6 @@ namespace MVCLocalization.Web
                 app.UseDeveloperExceptionPage();
             }
 
-            //app.UseHsts();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseRouting();
