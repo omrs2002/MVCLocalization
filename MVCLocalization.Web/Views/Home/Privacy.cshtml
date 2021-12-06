@@ -1,0 +1,21 @@
+﻿@using MVCLocalization.Web.Controllers
+@using Microsoft.AspNetCore.Mvc.Localization;
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<HomeController> lu
+
+@inject IViewLocalizer prlu
+@{
+    ViewData["Title"] = ViewData["Title"];
+}
+<h1>@ViewData["Title"]</h1>
+<div class="text-center">
+<p> @lu["Policy"]</p>
+<div>
+    page Content:
+    <br />
+    <p style="text-direction:ltr">
+        @prlu["PrivacyInfo"]</p>
+        
+</div>
+
+</div>

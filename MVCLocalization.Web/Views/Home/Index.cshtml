@@ -1,0 +1,15 @@
+﻿@using MVCLocalization.Web.Controllers
+@using Microsoft.AspNetCore.Mvc.Localization;
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<HomeController> lu
+
+
+@{
+    ViewData["Title"] = ViewData["Title"];
+}
+
+<h2>@ViewData["Title"]</h2>
+<div class="text-center">
+    <h4 class="display-4">@lu["HomePageTitle"]</h4>
+    
+</div>
