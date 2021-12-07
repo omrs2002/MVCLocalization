@@ -123,13 +123,4 @@
   <data name="Keys" xml:space="preserve">
     <value>Test Reading Keys from app settings:</value>
   </data>
-  <data name="Policy" xml:space="preserve">
-    <value>Policy</value>
-  </data>
-  <data name="Privacy" xml:space="preserve">
-    <value>Privacy</value>
-  </data>
-  <data name="Title" xml:space="preserve">
-    <value>MVC Localization</value>
-  </data>
 </root>

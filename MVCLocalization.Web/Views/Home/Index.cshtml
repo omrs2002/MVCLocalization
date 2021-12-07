@@ -4,19 +4,19 @@
 @using Microsoft.Extensions.Localization
 @using Microsoft.Extensions.Options
 
-@inject IStringLocalizer<HomeController> lu
+@inject IViewLocalizer luhome
 @inject IOptions<Keys> keys
-
 @{
     ViewData["Title"] = ViewData["Title"];
 }
 
 <h2>@ViewData["Title"]</h2>
 <div class="text-center">
-    <h4 class="display-4">@lu["HomePageTitle"]</h4>
+    <h6 class="display-4">@luhome["HomePageTitle"]</h6>
     <br />
     <div>
-        <b>Test  Reading Keys from app settings:</b><br />
+        <b>@luhome["Keys"]</b><br />
         User Name : @keys.Value.UserName
+        <a asp-action="sss" asp-controller="Home" ></a>
     </div>
 </div>

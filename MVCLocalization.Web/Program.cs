@@ -1,5 +1,3 @@
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Hosting;
 using MVCLocalization.Web;
 
 namespace NIC.SBC.Platform.UI
@@ -8,7 +6,10 @@ namespace NIC.SBC.Platform.UI
     {
         public static void Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();
+            var builder = CreateHostBuilder(args);
+
+            builder.Build().Run();
+            //CreateHostBuilder(args).Build().Run();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>

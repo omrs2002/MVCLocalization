@@ -10,12 +10,31 @@
 <h1>@ViewData["Title"]</h1>
 <div class="text-center">
 <p> @lu["Policy"]</p>
-<div>
-    page Content:
-    <br />
-    <p style="text-direction:ltr">
-        @prlu["PrivacyInfo"]</p>
-        
-</div>
+<div> 
+<div class="row">
+    <div class="">
 
+    </div>
+        <div class="col-md-4">
+               <b>Using IViewLocalizer</b>
+            <br />
+                @prlu["PrivacyInfo"]
+            </div>
+        <div class="col-md-4">
+             <b>Using localize TAGs</b>
+            <br />
+            <localize html="true">PrivacyInfo</localize>
+            <br /><br />
+        </div>
+        <div class="col-md-4">
+           page Content:
+    <br />
+            <b>use span: </b>
+            <br />
+            <span localize  html="true">PrivacyInfo</span>
+        </div>
+    </div>
+
+
+</div>
 </div>

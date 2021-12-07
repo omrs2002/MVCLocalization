@@ -120,6 +120,9 @@
   <data name="HomePageTitle" xml:space="preserve">
     <value>الصفحة الرئيسية</value>
   </data>
+  <data name="Keys" xml:space="preserve">
+    <value>اختبار مفاتيح القراءة من إعدادات التطبيق:</value>
+  </data>
   <data name="Policy" xml:space="preserve">
     <value>صفحة البوليسي</value>
   </data>
