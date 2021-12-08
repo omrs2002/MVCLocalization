@@ -12,12 +12,10 @@ namespace MVCLocalization.Web
 {
     public class Startup
     {
-
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
         }
-
         public IConfiguration Configuration { get; set; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
@@ -44,6 +42,11 @@ namespace MVCLocalization.Web
                 .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix, opts => opts.ResourcesPath = "Resources")
                 .AddMvcLocalization(options => { options.ResourcesPath = "Resources"; });
 
+
+            //Add general use client:
+            services.AddHttpClient();
+
+            //Add named client
             services.AddHttpClient("GitHub", httpClient =>
             {
                 httpClient.BaseAddress = new Uri("https://api.github.com/");
@@ -102,32 +105,25 @@ namespace MVCLocalization.Web
                    .UseHsts();
             }
 
-
-
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseRouting();
             app.UseAuthorization();
             app.UseHttpLogging();
 
-            //My Middleware:
+            //My Middlewares:
             app.UseCorrelationMiddleware();
 
-            //app.UseCorrelationId();
-
             var options = app.ApplicationServices.GetService<IOptions<RequestLocalizationOptions>>();
+
             if (options != null)
                 app.UseRequestLocalization(options.Value);
 
-
             app.UseRequestCulture();
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(name: "default", pattern: "{controller=Home}/{action=Index}/{id?}");
             });
         }
-
-
     }
 }
